@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 require_relative '../board/board'
+require_relative '../board_tokens/token'
+require_relative '../board_tokens/x_cross_token'
+require_relative '../board_tokens/hollow_circle_token'
 require_relative '../results/results'
 require_relative '../results/tie_results'
 
@@ -40,7 +43,7 @@ class TicTacToeGame
   def print_ui
     clear_screen
     print_header
-    @board.print_board
+    @board.print_board(@board.board_structure)
     puts ''
   end
 
@@ -57,11 +60,15 @@ class TicTacToeGame
     second_player_text = current_player_text(PLAYERS_TOKENS[1])
 
     puts '||-----------------Juego Tic-Tac-Toe-----------------||'
-    puts '||                                                   ||'
+    print_ui_space
     puts "|| Ficha del primer jugador  ---> #{format('%-19.19s', first_player_text)}||"
     puts "|| Ficha del segundo jugador ---> #{format('%-19.19s', second_player_text)}||"
-    puts '||                                                   ||'
+    print_ui_space
     puts '||---------------------------------------------------||'
+    print_ui_space
+  end
+
+  def print_ui_space
     puts '||                                                   ||'
   end
 
