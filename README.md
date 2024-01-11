@@ -1,10 +1,10 @@
 
 ![BrightCoders Logo](img/logo.png)
 
-# Juego del Boliche
+# Tic-Tac-Toe
 
 ## 📓 Descripción
-Programa para simular la realización de partidas aleatorias de boliche, desglosando por cada frame los tiros efectuados y puntajes acumulados.
+Programa para simular partidas con el juego Tic-Tac-Toe.
 
 ## 📋 Tabla de contenido
 - Tecnologías.
@@ -32,7 +32,7 @@ Programa para simular la realización de partidas aleatorias de boliche, desglos
 >
 >_**2.** Clonar o descargar el repositorio._
 >```
->$ git clone https://github.com/BrightCoders-Institute/s3a1-el-juego-de-boliche-team5_boliche.git
+>$ git clone https://github.com/BrightCoders-Institute/s3a3-tic-tac-toe-ErikGmz.git
 >```
 >
 >_**3.** Desplazarse al directorio del proyecto._
@@ -44,73 +44,30 @@ Programa para simular la realización de partidas aleatorias de boliche, desglos
 >```
 >$ ruby .\src\main.rb
 >
->   ||--------------- Frame 01 --------------||
->   || Tiro no. 01 -----> 04                 ||
->   || Tiro no. 02 -----> 04                 ||
->   ||---------------------------------------||
->   || Puntaje obtenido = 008                ||
->   ||---------------------------------------||
->
->   ||--------------- Frame 02 --------------||
->   || Tiro no. 01 -----> 05                 ||
->   || Tiro no. 02 -----> 02                 ||
->   ||---------------------------------------||
->   || Puntaje obtenido = 015                ||
->   ||---------------------------------------||
->
->   ||--------------- Frame 03 --------------||
->   || Tiro no. 01 -----> 05                 ||
->   || Tiro no. 02 -----> 01                 ||
->   ||---------------------------------------||
->   || Puntaje obtenido = 021                ||
->   ||---------------------------------------||
->
->   ||--------------- Frame 04 --------------||
->   || Tiro no. 01 -----> 06                 ||
->   || Tiro no. 02 -----> 04 (spare)         ||
->   ||---------------------------------------||
->   || Puntaje obtenido = 034                ||
->   ||---------------------------------------||
->
->   ||--------------- Frame 05 --------------||
->   || Tiro no. 01 -----> 03                 ||
->   || Tiro no. 02 -----> 02                 ||
->   ||---------------------------------------||
->   || Puntaje obtenido = 039                ||
->   ||---------------------------------------||
->
->   ||--------------- Frame 06 --------------||
->   || Tiro no. 01 -----> 10 (strike)        ||
->   ||---------------------------------------||
->   || Puntaje obtenido = 058                ||
->   ||---------------------------------------||
->
->   ||--------------- Frame 07 --------------||
->   || Tiro no. 01 -----> 05                 ||
->   || Tiro no. 02 -----> 04                 ||
->   ||---------------------------------------||
->   || Puntaje obtenido = 067                ||
->   ||---------------------------------------||
->
->   ||--------------- Frame 08 --------------||
->   || Tiro no. 01 -----> 01                 ||
->   || Tiro no. 02 -----> 03                 ||
->   ||---------------------------------------||
->   || Puntaje obtenido = 071                ||
->   ||---------------------------------------||
->
->   ||--------------- Frame 09 --------------||
->   || Tiro no. 01 -----> 10 (strike)        ||
->   ||---------------------------------------||
->   || Puntaje obtenido = 090                ||
->   ||---------------------------------------||
->
->   ||--------------- Frame 10 --------------||
->   || Tiro no. 01 -----> 04                 ||
->   || Tiro no. 02 -----> 05                 ||
->   ||---------------------------------------||
->   || Puntaje obtenido = 099                ||
->   ||---------------------------------------||
+>   ||-----------------Juego Tic-Tac-Toe-----------------||
+>   ||                                                   ||
+>   || Ficha del primer jugador  ---> X (actual)         ||
+>   || Ficha del segundo jugador ---> O                  ||
+>   ||                                                   ||
+>   ||---------------------------------------------------||
+>   ||                                                   ||
+>   ||       1     2     3                               ||
+>   ||                                                   ||
+>   ||          |     |                                  ||
+>   ||  1    X  |  X  |  O                               ||
+>   ||          |     |                                  ||
+>   ||     -----------------                             ||
+>   ||          |     |                                  ||
+>   ||  2    O  |  X  |  X                               ||
+>   ||          |     |                                  ||
+>   ||     -----------------                             ||
+>   ||          |     |                                  ||
+>   ||  3    X  |  O  |  O                               ||
+>   ||          |     |                                  ||
+>   ||                                                   ||
+>   ||---------------------------------------------------||
+>   
+>   La partida ha finalizado en empate.
 >```
 
 ## 🔬 Cómo ejecutar las pruebas del proyecto
@@ -132,16 +89,16 @@ Programa para simular la realización de partidas aleatorias de boliche, desglos
 >
 >_**2.** Ejecutar directamente desde el directorio del proyecto el archivo con las pruebas unitarias._
 >```
->$ ruby .\test\juego_boliche_test.rb
->   Run options: --seed 27205
->
+>$ ruby .\test\board_test.rb
+>   Run options: --seed 6543
+>   
 >   # Running:
->
->   ............
->
->   Finished in 0.040776s, 196.1958 runs/s, 515.0139 assertions/s.
->
->   8 runs, 21 assertions, 0 failures, 0 errors, 0 skips
+>   
+>   ...
+>   
+>   Finished in 0.031870s, 94.1318 runs/s, 2196.4092 assertions/s.
+>   
+>   3 runs, 70 assertions, 0 failures, 0 errors, 0 skips
 >```
 
 ## 🔍 Cómo ejecutar RuboCop en el proyecto
@@ -158,21 +115,25 @@ Programa para simular la realización de partidas aleatorias de boliche, desglos
 >_**2.** Ejecutar RuboCop en el directorio del proyecto._
 >```
 >$ rubocop
->   Inspecting 23 files
+>   Inspecting 13 files
 >   .......................
 >   
->   9 files inspected, no offenses detected
+>   13 files inspected, no offenses detected
 >
 >$ rubocop -L
 >   Gemfile
->   src/frame/frame.rb
->   src/frame/ultimo_frame.rb
+>   src/board/board.rb
+>   src/board/board_printing.rb
+>   src/board_tokens/hollow_circle_token.rb
+>   src/board_tokens/token.rb
+>   src/board_tokens/x_cross_token.rb
 >   src/main.rb
->   src/motor_juego/juego_boliche.rb
->   src/tiro/spare.rb
->   src/tiro/strike.rb
->   src/tiro/tiro.rb
->   test/juego_boliche_test.rb
+>   src/results/results.rb
+>   src/results/tie_results.rb
+>   src/tic_tac_toe/tic_tac_toe_game.rb
+>   test/board_generation.rb
+>   test/board_test.rb
+>   test/tic_tac_toe_test.rb
 >```
 
 ## 🧩 Cómo ejecutar Reek en el proyecto
@@ -191,8 +152,8 @@ Programa para simular la realización de partidas aleatorias de boliche, desglos
 >```
 >$ cd .\src\ 
 >$ reek
->   Inspecting 7 file(s):
->   SS.S..S
+>   Inspecting 9 file(s):
+>   SS......S
 >   ...
 >```
 >
@@ -200,8 +161,8 @@ Programa para simular la realización de partidas aleatorias de boliche, desglos
 >```
 >$ cd .\test\ 
 >$ reek
->   Inspecting 1 file(s):
->   S
+>   Inspecting 3 file(s):
+>   SSS
 >   ...
 >```
 
@@ -223,20 +184,20 @@ Programa para simular la realización de partidas aleatorias de boliche, desglos
 >   running flay smells
 >   
 >   running flog smells
->   .......
+>   .........
 >   running reek smells
->   .......
+>   .........
 >   running complexity
->   .......
+>   .........
 >   running attributes
->   .......
+>   .........
 >   running churn
->   .......
+>   .........
 >   running simple_cov
->   .......
->   New critique at file:///C:/Users/erikg/Desktop/s3a1-el-juego-de-boliche-
->   team5_boliche/src/tmp/rubycritic/overview.html
->   Score: 91.65
+>   .........
+>   New critique at file:///C:/Users/erikg/Desktop/s3a3-tic-tac-toe-
+>   ErikGmz/src/tmp/rubycritic/overview.html
+>   Score: 94.02
 >```
 >
 >_**3.** Ejecutar RubyCritic en el directorio de las pruebas._
@@ -246,26 +207,24 @@ Programa para simular la realización de partidas aleatorias de boliche, desglos
 >   running flay smells
 >   .
 >   running flog smells
->   .
+>   ...
 >   running reek smells
->   .
+>   ...
 >   running complexity
->   .
+>   ...
 >   running attributes
->   .
+>   ...
 >   running churn
->   .
+>   ...
 >   running simple_cov
->   .
->   New critique at file:///C:/Users/erikg/Desktop/s3a1-el-juego-de-boliche-
->   team5_boliche/test/tmp/rubycritic/overview.html
->   Score: 76.11
+>   ...
+>   New critique at file:///C:/Users/erikg/Desktop/s3a3-tic-tac-toe-
+>   ErikGmz/test/tmp/rubycritic/overview.html
+>   Score: 83.46
 >```
 
 ## 🕹️ Créditos
 - **[ErikGmz](https://github.com/ErikGmz)**
-- **[luiandre13](https://github.com/luiandre13)**
-- **[SharonBel7](https://github.com/SharonBel7)**
 
 ## 💻 Badges
 ![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)
