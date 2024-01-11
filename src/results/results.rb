@@ -7,6 +7,7 @@ class Results
   attr_reader :message
 
   def initialize(winner = -1)
+    @winner = winner
     @message = "El jugador no. #{format('%02i', winner)} ha ganado la partida"
   end
 end

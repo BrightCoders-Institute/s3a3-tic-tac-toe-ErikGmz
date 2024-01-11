@@ -8,6 +8,7 @@ require_relative './results'
 class TieResults < Results
   def initialize(_winner = -1)
     super
+    @winner = nil
     @message = 'La partida ha finalizado en empate'
   end
 end
